@@ -18,23 +18,34 @@
       <section class="preorder" style="padding-top:28px;">
         <div class="container">
           <h2>Formulaire de précommande</h2>
+          <p class="price">Prix de précommande : <strong>10 000&nbsp;€</strong></p>
           <form id="preorderForm" class="preorder-form" onsubmit="submitPreorder(event)">
-            <label for="name">Nom complet</label>
-            <input id="name" name="name" type="text" placeholder="Votre nom" required />
+            <div class="field half">
+              <label for="name">Nom complet</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required />
+            </div>
 
-            <label for="phone">Téléphone (obligatoire)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+33 6 12 34 56 78" required />
+            <div class="field half">
+              <label for="phone">Téléphone (obligatoire)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+33 6 12 34 56 78" required />
+            </div>
 
-            <label for="size">Taille (EU)</label>
-            <input id="size" name="size" type="text" placeholder="Ex: 42" />
+            <div class="field half">
+              <label for="size">Taille (EU)</label>
+              <input id="size" name="size" type="text" placeholder="Ex: 42" />
+            </div>
 
-            <label for="city">Ville</label>
-            <input id="city" name="city" type="text" placeholder="Ville" />
+            <div class="field half">
+              <label for="city">Ville</label>
+              <input id="city" name="city" type="text" placeholder="Ville" />
+            </div>
 
-            <label for="note">Message / précision</label>
-            <textarea id="note" name="note" rows="3" placeholder="Options, questions..." ></textarea>
+            <div class="field full">
+              <label for="note">Message / précision</label>
+              <textarea id="note" name="note" rows="3" placeholder="Options, questions..."></textarea>
+            </div>
 
-            <div class="form-row">
+            <div class="field full form-row">
               <button class="btn primary" type="submit">Envoyer ma précommande</button>
             </div>
             <p class="note">Nous vous contacterons par téléphone pour finaliser la commande et organiser le paiement.</p>
@@ -64,8 +75,8 @@
           alert('Le téléphone est requis.');
           return;
         }
-        
-        form.innerHTML = `<p class="thanks">Merci ${data.name || ''} — votre demande a bien été enregistrée. Nous vous contacterons bientôt au <strong>${data.phone}</strong> pour organiser le paiement et la livraison.</p>`;
+
+        form.innerHTML = `<p class="thanks">Merci ${data.name || ''} — votre demande a bien été enregistrée. Prix : <strong>10 000 €</strong>.<br>Nous vous contacterons bientôt au <strong>${data.phone}</strong> pour organiser le paiement et la livraison.</p>`;
       }
     </script>
   </body>

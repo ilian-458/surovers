@@ -42,7 +42,27 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Seg
 .how-grid{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center}
 .how-text p{color:#0b2440;line-height:1.5}
 .how-text ol{color:var(--muted);margin-left:18px}
-.how-visual .placeholder{height:260px;border-radius:12px;background:linear-gradient(135deg,#eaf4ff,#ffffff);display:flex;align-items:center;justify-content:center;color:#0b2440;border:1px dashed rgba(11,36,64,0.06)}
+.how-visual{display:flex;justify-content:center}
+.how-visual .placeholder{
+	background:var(--card) !important; /* match card background */
+	border-radius:12px;
+	display:flex;align-items:center;justify-content:center;
+	color:#0b2440;
+	border:1px solid rgba(11,36,64,0.04);
+	padding:10px;overflow:hidden;margin:0 auto;
+	width:100%;max-width:280px;min-height:120px;height:auto;justify-self:center;align-self:center;
+}
+.how-visual .placeholder img{
+	width:100%;height:auto;max-width:100%;max-height:200px;display:block;object-fit:scale-down;border-radius:6px
+}
+
+/* Specific tech illustration sizing override */
+.tech-illustration{max-width:260px;max-height:180px;display:block;margin:0 auto}
+
+@media (max-width:900px){
+	.how-grid{grid-template-columns:1fr}
+	.how-visual .placeholder{max-width:100%;min-height:140px}
+}
 
 @media (max-width:900px){
 	.how-grid{grid-template-columns:1fr}
@@ -53,6 +73,8 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Seg
 .preorder{padding:36px 0 64px}
 .preorder .container{display:flex;flex-direction:column;align-items:center}
 .preorder h2{color:#0b2440;margin:0 0 12px}
+.price{font-size:18px;color:#0b2440;margin:8px 0 16px}
+.price strong{color:var(--accent);font-size:20px}
 .preorder-form{max-width:520px;width:100%;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(11,36,64,0.04)}
 .preorder-form label{display:block;color:var(--muted);margin:0 0 6px;font-size:14px}
 
@@ -85,7 +107,7 @@ html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Seg
 	.preorder-form .btn.primary{width:100%}
 }
 .note{font-size:13px;color:var(--muted);margin-top:12px}
-.thanks{color:#055a1f;background:rgba(5,90,31,0.06);padding:12px;border-radius:8px}
+.thanks{color:#055a1f;background:rgba(5,90,31,0.06);padding:12px;border-radius:8px;}
 
 /* Footer */
 .site-footer{padding:18px 0;border-top:1px solid rgba(11,36,64,0.04)}
