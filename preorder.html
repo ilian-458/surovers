@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Précommande — Surovers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <header class="hero" style="min-height:28vh; --hero-image: url('ChatGPT Image 8 oct. 2025, 11_14_28.png')">
+      <div class="hero-inner">
+        <h1 class="brand">Précommande Surovers</h1>
+        <p class="tagline">Remplissez ce court formulaire — nous vous contacterons pour le paiement.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="preorder" style="padding-top:28px;">
+        <div class="container">
+          <h2>Formulaire de précommande</h2>
+          <form id="preorderForm" class="preorder-form" onsubmit="submitPreorder(event)">
+            <label for="name">Nom complet</label>
+            <input id="name" name="name" type="text" placeholder="Votre nom" required />
+
+            <label for="phone">Téléphone (obligatoire)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+33 6 12 34 56 78" required />
+
+            <label for="size">Taille (EU)</label>
+            <input id="size" name="size" type="text" placeholder="Ex: 42" />
+
+            <label for="city">Ville</label>
+            <input id="city" name="city" type="text" placeholder="Ville" />
+
+            <label for="note">Message / précision</label>
+            <textarea id="note" name="note" rows="3" placeholder="Options, questions..." ></textarea>
+
+            <div class="form-row">
+              <button class="btn primary" type="submit">Envoyer ma précommande</button>
+            </div>
+            <p class="note">Nous vous contacterons par téléphone pour finaliser la commande et organiser le paiement.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container"><p>&copy; <span id="year">2025</span> Surovers</p></div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      function submitPreorder(e){
+        e.preventDefault();
+        const form = document.getElementById('preorderForm');
+        const data = {
+          name: form.name.value.trim(),
+          phone: form.phone.value.trim(),
+          size: form.size.value.trim(),
+          city: form.city.value.trim(),
+          note: form.note.value.trim()
+        };
+        if (!data.phone){
+          alert('Le téléphone est requis.');
+          return;
+        }
+        
+        form.innerHTML = `<p class="thanks">Merci ${data.name || ''} — votre demande a bien été enregistrée. Nous vous contacterons bientôt au <strong>${data.phone}</strong> pour organiser le paiement et la livraison.</p>`;
+      }
+    </script>
+  </body>
+</html>

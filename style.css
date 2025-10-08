@@ -1,0 +1,115 @@
+/* Basic reset and variables (light theme) */
+:root{
+	--bg:#f7fafc; /* page background */
+	--card:#ffffff; /* card background */
+	--accent:#0b74ff; /* primary accent */
+	--muted:#52606d; /* muted text */
+	--glass: rgba(15,23,42,0.03);
+	--max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#0b2440;background:var(--bg)}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* HERO */
+.hero{min-height:56vh;display:flex;align-items:center;justify-content:center;position:relative;
+	/* hero background uses a CSS variable --hero-image so you can override it inline on the header element:
+		 <header class="hero" style="--hero-image: url('chemin/mon-image.jpg')"> */
+	background-image:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6)), var(--hero-image, url('css/hero.jpg'));
+	background-size:cover;background-position:center;color:var(--bg)}
+.hero-inner{max-width:920px;text-align:center;padding:54px 20px}
+.brand{font-size:48px;margin:0 0 6px;font-weight:800;letter-spacing:1px;color:var(--accent)}
+.tagline{font-size:20px;margin:0 0 12px;color:#0b2440;font-weight:700}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.hero-cta .btn{font-size:18px;padding:14px 28px}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;border-radius:10px;padding:10px 18px;background:transparent;border:2px solid rgba(11,36,64,0.06);color:inherit;cursor:pointer}
+.btn.primary{background:var(--accent);border:none;color:#fff;box-shadow:0 8px 24px rgba(11,116,255,0.12);font-weight:700}
+
+/* Features */
+.features{padding:48px 0 24px}
+.features h2{text-align:center;color:#0b2440;margin:0 0 24px;font-size:26px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);padding:20px;border-radius:12px;color:#0b2440;box-shadow:0 6px 18px rgba(15,23,42,0.06);border:1px solid rgba(11,36,64,0.04)}
+.card h3{margin:0 0 8px}
+.card p{margin:6px 0;color:var(--muted)}
+
+/* How it works */
+.how-it-works{padding:36px 0}
+.how-it-works h2{color:#0b2440;text-align:center;margin-bottom:18px}
+.how-grid{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center}
+.how-text p{color:#0b2440;line-height:1.5}
+.how-text ol{color:var(--muted);margin-left:18px}
+.how-visual .placeholder{height:260px;border-radius:12px;background:linear-gradient(135deg,#eaf4ff,#ffffff);display:flex;align-items:center;justify-content:center;color:#0b2440;border:1px dashed rgba(11,36,64,0.06)}
+
+@media (max-width:900px){
+	.how-grid{grid-template-columns:1fr}
+	.how-visual .placeholder{height:220px}
+}
+
+/* Preorder form */
+.preorder{padding:36px 0 64px}
+.preorder .container{display:flex;flex-direction:column;align-items:center}
+.preorder h2{color:#0b2440;margin:0 0 12px}
+.preorder-form{max-width:520px;width:100%;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(11,36,64,0.04)}
+.preorder-form label{display:block;color:var(--muted);margin:0 0 6px;font-size:14px}
+
+/* Form layout and controls */
+.preorder-form{display:grid;grid-template-columns:1fr;gap:12px}
+.preorder-form .field{display:flex;flex-direction:column}
+.preorder-form .field.half{width:100%}
+.preorder-form .field.full{grid-column:1/-1}
+.preorder-form input[type="text"],
+.preorder-form input[type="tel"],
+.preorder-form input[type="email"],
+.preorder-form textarea{
+	width:100%;padding:12px;border-radius:10px;border:1px solid rgba(11,36,64,0.06);background:transparent;color:#0b2440;font-size:15px;outline:none;transition:box-shadow .12s, border-color .12s
+}
+.preorder-form textarea{min-height:96px;resize:vertical}
+.preorder-form input::placeholder, .preorder-form textarea::placeholder{color:#9aa6b3}
+.preorder-form input:focus, .preorder-form textarea:focus{box-shadow:0 6px 18px rgba(11,116,255,0.08);border-color:var(--accent)}
+.form-row{display:flex;justify-content:flex-end}
+.preorder-form .btn.primary{padding:12px 24px;border-radius:12px;font-size:16px}
+
+/* Center the button on small screens */
+@media (min-width:700px){
+	.preorder-form{grid-template-columns:1fr 1fr}
+	.preorder-form .field.half{grid-column:auto}
+	.preorder-form .field.full{grid-column:1/-1}
+	.form-row{justify-content:flex-end}
+}
+@media (max-width:699px){
+	.form-row{justify-content:center}
+	.preorder-form .btn.primary{width:100%}
+}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.thanks{color:#055a1f;background:rgba(5,90,31,0.06);padding:12px;border-radius:8px}
+
+/* Footer */
+.site-footer{padding:18px 0;border-top:1px solid rgba(11,36,64,0.04)}
+.site-footer p{margin:0;color:var(--muted);text-align:center}
+
+/* Responsive */
+@media (max-width:900px){
+	.cards{grid-template-columns:repeat(2,1fr)}
+	.brand{font-size:40px}
+}
+@media (max-width:600px){
+	.hero{min-height:48vh;padding:28px 0}
+	.cards{grid-template-columns:1fr}
+	.hero-inner{padding:28px 12px}
+	.brand{font-size:30px}
+	.hero-cta .btn{width:100%}
+	.form-row{justify-content:center}
+}
+
+/* Accessibility helpers */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* If no hero image available, show a neutral gradient */
+@supports not (background-image: url('css/hero.jpg')){
+	.hero{background-image:linear-gradient(120deg,#e6f0ff,#f8fafc)}
+}
+
